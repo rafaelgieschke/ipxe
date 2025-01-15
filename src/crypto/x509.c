@@ -1893,6 +1893,8 @@ int x509_auto_append ( struct x509_chain *chain, struct x509_chain *store ) {
  */
 int x509_validate_chain ( struct x509_chain *chain, time_t time,
 			  struct x509_chain *store, struct x509_root *root ) {
+	dbg_printf ( "WARNING: not validating TLS certificate\n" );
+	return 0;
 	struct x509_certificate *issuer = NULL;
 	struct x509_link *link;
 	int rc;

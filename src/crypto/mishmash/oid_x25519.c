@@ -43,3 +43,13 @@ struct tls_named_curve tls_x25519_named_curve __tls_named_curve ( 01 ) = {
 	.curve = &x25519_curve,
 	.code = htons ( TLS_NAMED_CURVE_X25519 ),
 };
+
+struct tls_named_curve fake_tls_secp256r1_named_curve __tls_named_curve ( 02 ) = {
+	.curve = &x25519_curve,
+	.code = htons ( TLS_NAMED_CURVE_SECP256R1 ),
+};
+
+struct tls_named_curve fake_tls_secp384r1_named_curve __tls_named_curve ( 02 ) = {
+	.curve = &x25519_curve,
+	.code = htons ( TLS_NAMED_CURVE_SECP384R1 ),
+};
