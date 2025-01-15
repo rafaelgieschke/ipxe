@@ -40,6 +40,18 @@ struct asn1_algorithm sha384_with_rsa_encryption_algorithm __asn1_algorithm = {
 	.oid = ASN1_CURSOR ( oid_sha384_with_rsa_encryption ),
 };
 
+/** "ecdsa-with-SHA384" object identifier */
+static uint8_t oid_ecdsa_with_sha384[] =
+	{ ASN1_OID_ECDSAWITHSHA384 };
+
+/** "ecdsa-with-SHA384" OID-identified algorithm */
+struct asn1_algorithm fake_ecdsa_with_sha384_algorithm __asn1_algorithm = {
+	.name = "ecdsa-with-SHA384",
+	.pubkey = &rsa_algorithm,
+	.digest = &sha384_algorithm,
+	.oid = ASN1_CURSOR ( oid_ecdsa_with_sha384 ),
+};
+
 /** SHA-384 digestInfo prefix */
 static const uint8_t rsa_sha384_prefix_data[] =
 	{ RSA_DIGESTINFO_PREFIX ( SHA384_DIGEST_SIZE, ASN1_OID_SHA384 ) };
@@ -55,6 +67,15 @@ struct rsa_digestinfo_prefix rsa_sha384_prefix __rsa_digestinfo_prefix = {
 struct tls_signature_hash_algorithm tls_rsa_sha384 __tls_sig_hash_algorithm = {
 	.code = {
 		.signature = TLS_RSA_ALGORITHM,
+		.hash = TLS_SHA384_ALGORITHM,
+	},
+	.pubkey = &rsa_algorithm,
+	.digest = &sha384_algorithm,
+};
+
+struct tls_signature_hash_algorithm fake_tls_ecdsa_sha384 __tls_sig_hash_algorithm = {
+	.code = {
+		.signature = TLS_ECDSA_ALGORITHM,
 		.hash = TLS_SHA384_ALGORITHM,
 	},
 	.pubkey = &rsa_algorithm,

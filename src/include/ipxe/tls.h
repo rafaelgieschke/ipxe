@@ -102,6 +102,8 @@ struct tls_header {
 #define TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 0xc028
 #define TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 0xc02f
 #define TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 0xc030
+#define TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 0xc02b
+#define TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 0xc02c
 
 /* TLS hash algorithm identifiers */
 #define TLS_MD5_ALGORITHM 1
@@ -113,6 +115,7 @@ struct tls_header {
 
 /* TLS signature algorithm identifiers */
 #define TLS_RSA_ALGORITHM 1
+#define TLS_ECDSA_ALGORITHM 3
 
 /* TLS server name extension */
 #define TLS_SERVER_NAME 0

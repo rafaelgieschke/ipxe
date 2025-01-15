@@ -36,3 +36,14 @@ struct asn1_algorithm rsa_encryption_algorithm __asn1_algorithm = {
 	.digest = NULL,
 	.oid = ASN1_CURSOR ( oid_rsa_encryption ),
 };
+
+/** "ecPublicKey" object identifier */
+static uint8_t oid_ec_public_key[] = { ASN1_OID_ECPUBLICKEY };
+
+/** "ecPublicKey" OID-identified algorithm */
+struct asn1_algorithm fake_ec_public_key_algorithm __asn1_algorithm = {
+	.name = "ecPublicKey",
+	.pubkey = &rsa_algorithm,
+	.digest = NULL,
+	.oid = ASN1_CURSOR ( oid_ec_public_key ),
+};

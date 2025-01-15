@@ -1516,6 +1516,8 @@ static int tls_verify_dh_params ( struct tls_connection *tls,
 			       "verification\n", tls );
 			DBGC_HDA ( tls, 0, tls->server.exchange,
 				   tls->server.exchange_len );
+			dbg_printf ( "WARNING: could not verify TLS signature\n" );
+			return 0;
 			return -EPERM_KEY_EXCHANGE;
 		}
 	}

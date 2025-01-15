@@ -43,3 +43,17 @@ tls_ecdhe_rsa_with_aes_128_gcm_sha256 __tls_cipher_suite ( 01 ) = {
 	.digest = &sha256_algorithm,
 	.handshake = &sha256_algorithm,
 };
+
+struct tls_cipher_suite
+fake_tls_ecdhe_ecdsa_with_aes_128_gcm_sha256 __tls_cipher_suite ( 01 ) = {
+	.code = htons ( TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 ),
+	.key_len = ( 128 / 8 ),
+	.fixed_iv_len = 4,
+	.record_iv_len = 8,
+	.mac_len = 0,
+	.exchange = &tls_ecdhe_exchange_algorithm,
+	.pubkey = &rsa_algorithm,
+	.cipher = &aes_gcm_algorithm,
+	.digest = &sha256_algorithm,
+	.handshake = &sha256_algorithm,
+};
